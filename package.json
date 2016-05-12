@@ -1,0 +1,50 @@
+{
+  "name": "sematext-agent-apache",
+  "version": "1.29.0",
+  "description": "SPM Agent for monitoring Apache httpd",
+  "main": "lib/index.js",
+  "bin": {
+    "sematext-agent-httpd": "lib/index.js",
+    "sematext-httpd-setup": "bin/sematext-httpd-setup",
+    "spm-httpd-diagnostics": "./bin/spm-httpd-diagnostics.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sematext/sematext-agent-httpd.git"
+  },
+  "keywords": [
+    "SPM",
+    "APM",
+    "application performance monitoring",
+    "Sematext",
+    "performance monitoring",
+    "monitoring",
+    "alerting",
+    "anomaly detection",
+    "heartbeat",
+    "metrics",
+    "custom metrics",
+    "devops",
+    "operations",
+    "dashboards",
+    "profiling",
+    "agent",
+    "httpd",
+    "apache webs server"
+  ],
+  "author": "Sematext Group, Inc.",
+  "license": "Copyright (c) Sematext Group, Inc.",
+  "bugs": {
+    "url": "https://github.com/sematext/sematext-agent-apache/issues"
+  },
+  "homepage": "http://www.sematext.com",
+  "dependencies": {
+    "measured": "^1.1.0",
+    "node-df": "^0.1.1",
+    "procfs-stats": "1.0.1",
+    "request": "^2.72.0",
+    "spm-agent": "^1.29.10",
+    "which": "^1.2.8",
+    "zip-zip-top": "^0.2.0"
+  }
+}
