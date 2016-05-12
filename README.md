@@ -17,8 +17,6 @@ This is the Apache httpd monitoring Agent for [SPM Performance Monitoring](http:
 ```
 <Location /server-status>
                 SetHandler server-status
-                Require local
-                Require ip 192.168.1.20
 </Location>
 ```        
 
