@@ -25,7 +25,7 @@ This is the Apache httpd monitoring Agent for [SPM Performance Monitoring](http:
 # Setup 
 ```sh
 # Install sematext-agent-httpd 
-npm i sematext/sematext-agent-httpd -g
+npm i sematext/sematext-agent-apache -g
 # Install systemd or upstart service file for sematext-agent-httpd 
 sematext-httpd-setup YOUR_SPM_TOKEN_HERE http://localhost/server-status
 ```
