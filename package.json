@@ -1,6 +1,6 @@
 {
   "name": "sematext-agent-httpd",
-  "version": "1.30.0",
+  "version": "1.30.1",
   "description": "SPM Agent for monitoring Apache httpd",
   "main": "lib/index.js",
   "bin": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sematext/sematext-agent-apache.git"
+    "url": "https://github.com/sematext/sematext-agent-httpd.git"
   },
   "keywords": [
     "SPM",
@@ -36,7 +36,7 @@
   "author": "Sematext Group, Inc.",
   "license": "Copyright (c) Sematext Group, Inc.",
   "bugs": {
-    "url": "https://github.com/sematext/sematext-agent-apache/issues"
+    "url": "https://github.com/sematext/sematext-agent-httpd/issues"
   },
   "homepage": "http://www.sematext.com",
   "dependencies": {
