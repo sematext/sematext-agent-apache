@@ -6,6 +6,7 @@
   "bin": {
     "sematext-agent-httpd": "lib/index.js",
     "sematext-httpd-setup": "bin/sematext-httpd-setup",
+    "sematext-httpd-uninstall": "bin/sematext-httpd-uninstall",
     "spm-httpd-diagnostics": "./bin/spm-httpd-diagnostics.js"
   },
   "repository": {

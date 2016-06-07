@@ -1,0 +1,29 @@
+#!/bin/bash
+PLATFORM=$(uname)
+SERVICE_NAME="sematext-agent-httpd"
+UPSTART_SERVICE_FILE=/etc/init/${SERVICE_NAME}.conf
+LAUNCHCTL_SERVICE_FILE="/Library/LaunchDaemons/com.sematext.sematext-agent-httpd.plist"
+SYSTEMD_SERVICE_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
+SPM_AGENT_CONFIG_FILE=/etc/sematext/${SERVICE_NAME}.config
+
+
+uninstall () 
+{
+	if [[ $PLATFORM = "Darwin" ]]; then
+		echo "Generate launchd script ${LAUNCHCTL_SERVICE_FILE}"
+		generate_launchctl $1 $2 $3 
+		return
+	fi
+
+	if [[ `/sbin/init --version` =~ upstart ]]>/dev/null; then 
+		echo "Generate upstart script ${UPSTART_SERVICE_FILE}"
+		generate_upstart $1 $2 $3
+		return
+	fi
+	if [[ `systemctl` =~ -\.mount ]]; then 
+		echo "Generate systemd script "
+		generate_systemd $1 $2 $3
+		return 
+	fi
+	
+}
