@@ -1,7 +1,5 @@
 [![bitHound Overalll Score](https://www.bithound.io/github/sematext/sematext-agent-apache/badges/score.svg)](https://www.bithound.io/github/sematext/sematext-agent-apache) [![Build Status](https://travis-ci.org/sematext/sematext-agent-apache.svg?branch=master)](https://travis-ci.org/sematext/sematext-agent-apache)
 
-# WORK IN PROGRESS 
-
 This is the Apache httpd monitoring Agent for [SPM Performance Monitoring](http://sematext.com/spm/)
 
 
@@ -23,7 +21,7 @@ This is the Apache httpd monitoring Agent for [SPM Performance Monitoring](http:
 # Setup 
 ```sh
 # Install sematext-agent-httpd 
-npm i sematext/sematext-agent-apache -g
+npm i sematext/sematext-agent-httpd -g
 # Install systemd or upstart service file for sematext-agent-httpd 
 sematext-httpd-setup YOUR_SPM_TOKEN_HERE http://localhost/server-status
 ```
