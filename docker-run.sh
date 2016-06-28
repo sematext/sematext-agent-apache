@@ -10,7 +10,7 @@ printf '{
 	"httpd": {
 		"url": "%s"
 	},
-	"spmSenderBulkInsertUrl": "%s",
+	"spmSenderBulkInsertUrl": "%s"
 }' ${SPM_TOKEN} ${HTTPD_STATUS_URL} ${SPM_RECEIVER_URL} > $SPM_AGENT_CONFIG_FILE
  
 sematext-agent-httpd --config $SPM_AGENT_CONFIG_FILE 
