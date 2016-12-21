@@ -16,7 +16,9 @@ This is the Apache httpd monitoring Agent for [SPM Performance Monitoring](http:
 <Location /server-status>
                 SetHandler server-status
 </Location>
-```        
+```      
+
+__Optional preparation for PHP FastCGI Process Manager (FPM):__ To add monitoring for PHP-FPM follow [this instructions](https://github.com/sematext/sematext-agent-httpd/blob/master/php-fpm.md).  
 
 # Setup 
 ```sh
@@ -72,6 +74,7 @@ The Sematext Apache Agent supports following parameters on Docker:
 | SPM_TOKEN                | your SPM Token for the Apache SPM App |
 | HTTPD_STATUS_URL          | the URL to httpd server, delivering the stats (see httpd configuration above). Please note the servername/ip must be reachable from the agent container. You might need to use --link Apache container-name to create the network link. |
 | Optional parameters      | |
+| PHP_FPM_STATUS_URL | PHP FastCGI status url |
 | HTTPS_PROXY              | Url to HTTPS proxy if the agent runs behind a firewall |
 | SPM_RECEIVER_URL         | Optional for SPM On-Premises, default value: https://spm-receiver.sematext.com:443/receiver/v1/_bulk |
 | EVENTS_RECEIVER_URL      | Optional for SPM On-Premises, default value: https://event-receiver.sematext.com |
