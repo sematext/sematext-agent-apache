@@ -55,7 +55,7 @@ sematext-agent-httpd --config /etc/sematext/sematext-agent-httpd.config
 # Results
 
 Apache Metrics in SPM: 
-![](https://raw.githubusercontent.com/sematext/sematext-agent-apache/master/httpd-report-screenshot.png)
+![](https://raw.githubusercontent.com/sematext/sematext-agent-httpd/master/httpd-report-screenshot.png)
 
 # Docker 
 
