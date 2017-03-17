@@ -12,7 +12,19 @@ Or edit the file `/etc/php-fpm.conf` manually and add the line
 pm.status_path = /status
 ``` 
 
-# Setup monitoring with PHP-FPM status page via unix socket 
+Restart php-fpm e.g. for upstart
+```
+service php-fpm restart 
+```
+
+or for systemd
+```
+systemctl restart php-fpm.service
+```
+
+Make sure that Node.js > 4.x is installed: [https://nodejs.org/en/download/package-manager/](https://nodejs.org/en/download/package-manager/)
+
+# Setup monitoring with PHP-FPM status page via unix socket (recommended)
 
 ```sh
 # Install sematext-agent-httpd (assuming nodejs is already installed)
