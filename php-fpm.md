@@ -14,12 +14,12 @@ pm.status_path = /status
 
 Restart php-fpm e.g. for upstart
 ```
-service php-fpm restart 
+sudo service php-fpm restart 
 ```
 
 or for systemd
 ```
-systemctl restart php-fpm.service
+sudo systemctl restart php-fpm.service
 ```
 
 Make sure that Node.js > 4.x is installed: [https://nodejs.org/en/download/package-manager/](https://nodejs.org/en/download/package-manager/)
@@ -28,13 +28,13 @@ Make sure that Node.js > 4.x is installed: [https://nodejs.org/en/download/packa
 
 ```sh
 # Install sematext-agent-httpd (assuming nodejs is already installed)
-npm i sematext-agent-httpd -g
+sudo npm i sematext-agent-httpd -g
 ```
 
 Then run the service setup for the PHP-FPM monitoring agent. Pass the SPM Token, Apache status URL, and the PHP-FPM status URL to the setup command:
 ```
 # sematext-httpd-setup YOUR_SPM_TOKEN_HERE HTTPD_STATUS_URL PHP_FPM_STATUS_URL
-sematext-httpd-setup YOUR_SPM_TOKEN_HERE http://localhost/server-status http://unix:/var/run/php-fpm.sock:/status
+sudo sematext-httpd-setup YOUR_SPM_TOKEN_HERE http://localhost/server-status http://unix:/var/run/php-fpm.sock:/status
 ```
 
 # Setup monitoring with PHP-FPM status page via HTTP
