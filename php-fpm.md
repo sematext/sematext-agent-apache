@@ -3,10 +3,10 @@
 For [PHP-FPM](http://php.net/manual/en/install.fpm.php) status monitoring activate PHP-FPM status page in your php-fpm config by removing the leading semicolon in the ```;pm.status_path = /status``` entry:
 
 ```
-sed -i -e "s/^;pm.status_path/pm.status_path/" /etc/php-fpm.conf
+sudo sed -i -e "s/^;pm.status_path/pm.status_path/" /etc/php-fpm.d/www.conf
 ```
 
-Or edit the file `/etc/php-fpm.conf` manually and add the line
+Or edit the file ` /etc/php-fpm.d/www.conf` manually and add the line
 
 ```
 pm.status_path = /status
