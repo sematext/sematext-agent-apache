@@ -24,12 +24,13 @@ sudo systemctl restart php-fpm.service
 
 Make sure that Node.js > 4.x is installed: [https://nodejs.org/en/download/package-manager/](https://nodejs.org/en/download/package-manager/)
 
-# Setup monitoring with PHP-FPM status page via unix socket (recommended)
-
+Install sematext-agent-httpd via npm (Node package manage)
 ```sh
 # Install sematext-agent-httpd (assuming nodejs is already installed)
 sudo npm i sematext-agent-httpd -g
 ```
+
+# Setup monitoring with PHP-FPM status page via unix socket (recommended)
 
 Then run the service setup for the PHP-FPM monitoring agent. Pass the SPM Token, Apache status URL, and the PHP-FPM status URL to the setup command:
 ```
@@ -64,6 +65,6 @@ Then run the setup command using HTTP URLs for status pages:
 
 ```
   # sematext-httpd-setup YOUR_SPM_TOKEN_HERE HTTPD_STATUS_URL PHP_FPM_STATUS_URL
-  sematext-nginx-setup YOUR_SPM_TOKEN_HERE http://localhost/server-status http://localhost/status
+  sudo sematext-nginx-setup YOUR_SPM_TOKEN_HERE http://localhost/server-status http://localhost/status
 ```
 
