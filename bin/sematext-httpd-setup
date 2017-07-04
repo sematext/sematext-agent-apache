@@ -15,7 +15,58 @@ if [[ -n "$3" ]]; then
 	PHP_FPM_URL="$3"
 	echo "PHP_FPM_URL: $PHP_FPM_URL"
 fi
+export token = $1
+export httpd_url = $2
 
+function generate_eu_config()
+{
+echo -e "SPM_RECEIVER_URL=https://spm-receiver.eu.sematext.com/receiver/v1
+EVENTS_RECEIVER_URL=https://event-receiver.eu.sematext.com
+LOGSENE_RECEIVER_URL=https://logsene-receiver.eu.sematext.com" > /etc/sematext/receivers.config
+}
+
+function generate_us_config()
+{
+echo -e "SPM_RECEIVER_URL=https://spm-receiver.sematext.com/receiver/v1
+EVENTS_RECEIVER_URL=https://event-receiver.sematext.com
+LOGSENE_RECEIVER_URL=https://logsene-receiver.sematext.com" > /etc/sematext/receivers.config
+}
+
+
+while getopts ":t:u:p:r:" opt; do
+  case $opt in
+    t)
+      export token=$OPTARG
+      ;;
+    r)
+      export REGION=$OPTARG
+      mkdir /etc/sematext 2> /dev/null
+      if [ "$REGION" == "EU" ]; then 
+      		generate_eu_config
+      		echo "Set region $OPTARG in /etc/sematext/receivers.config:"
+      		cat /etc/sematext/receivers.config
+      		exit 0
+      fi;
+      if [ "$REGION" == "US" ]; then 
+      		generate_us_config
+      		echo "Set region $OPTARG in /etc/sematext/receivers.config:"
+      		cat /etc/sematext/receivers.config
+      		exit 0
+      fi;
+      echo "Invalid region $OPTARG"
+      exit 1
+      ;;
+    p)
+      export PHP_FPM_URL=$OPTARG
+      ;;
+    u)
+      export httpd_url=$OPTARG
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      ;;
+  esac
+done
 function generate_upstart()
 {
 echo -e "description \"${DESCRIPTION}\"
@@ -146,8 +197,8 @@ echo "Create config file: $SPM_AGENT_CONFIG_FILE"
 command="$(which $SERVICE_NAME) --config ${SPM_AGENT_CONFIG_FILE}"
 echo $command
 if [[ -n "$1" && -n "$2" ]] ; then 
-  token=$1
-  httpd_url=$2
+  # token=$1
+  # httpd_url=$2
   install_script "$command" $token $httpd_url;
 else 
 	echo "${COLORred}Missing paramaters. Usage:"

@@ -34,8 +34,10 @@ sudo npm i sematext-agent-httpd -g
 
 Then run the service setup for the PHP-FPM monitoring agent. Pass the SPM Token, Apache status URL, and the PHP-FPM status URL to the setup command:
 ```
-# sematext-httpd-setup YOUR_SPM_TOKEN_HERE HTTPD_STATUS_URL PHP_FPM_STATUS_URL
-sudo sematext-httpd-setup YOUR_SPM_TOKEN_HERE http://localhost/server-status http://unix:/var/run/php-fpm.sock:/status
+# If you use Sematext Cloud EU, set region for API endpoints
+# sematext-httpd-setup  -r EU
+# sematext-httpd-setup -t YOUR_SPM_TOKEN_HERE -u HTTPD_STATUS_URL -p PHP_FPM_STATUS_URL
+sudo sematext-httpd-setup -t YOUR_SPM_TOKEN_HERE -u http://localhost/server-status -p http://unix:/var/run/php-fpm.sock:/status
 ```
 
 # Setup monitoring with PHP-FPM status page via HTTP
