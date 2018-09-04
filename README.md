@@ -1,13 +1,13 @@
-[![bitHound Overalll Score](https://www.bithound.io/github/sematext/sematext-agent-apache/badges/score.svg)](https://www.bithound.io/github/sematext/sematext-agent-apache) [![Build Status](https://travis-ci.org/sematext/sematext-agent-apache.svg?branch=master)](https://travis-ci.org/sematext/sematext-agent-apache)
+[![Build Status](https://travis-ci.org/sematext/sematext-agent-apache.svg?branch=master)](https://travis-ci.org/sematext/sematext-agent-apache)
 
-This is the Apache httpd monitoring Agent for [SPM Performance Monitoring](http://sematext.com/spm/)
+This is the Apache httpd monitoring Agent for [Sematext Monitoring](http://sematext.com/spm/)
 
 
 # Preparation 
 
 1. Get a free account at [sematext.com/spm](https://apps.sematext.com/users-web/register.do)  
 
-2. [Create an SPM App](https://apps.sematext.com/spm-reports/registerApplication.do) of type "Apache" and copy the SPM Application Token - or execute the commands displayed in the Sematext UI (which are described here as well)
+2. [Create a Monitoring App](https://apps.sematext.com/spm-reports/registerApplication.do) of type "Apache" and copy the  Application Token - or execute the commands displayed in the Sematext UI (which are described here as well)
 
 3. [Install Node.js](https://nodejs.org/en/download/package-manager/) on your Apache httpd server
 
