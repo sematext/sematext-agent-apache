@@ -169,6 +169,9 @@ httpd:
   url: %s
 phpFpm:
   url: %s
+# times in seconds
+collectionInterval: 5
+sendInterval: 15
 ' $2 $3 $PHP_FPM_URL > $SPM_AGENT_CONFIG_FILE
 runCommand "chown root $SPM_AGENT_CONFIG_FILE"
 runCommand "chmod 0600 $SPM_AGENT_CONFIG_FILE"
