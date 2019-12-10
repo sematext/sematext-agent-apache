@@ -40,12 +40,12 @@
   },
   "homepage": "http://www.sematext.com",
   "dependencies": {
-    "flat": "^2.0.1",
-    "measured-core": "^1.40.1",
-    "request": "^2.79.0",
+    "flat": "^5.0.0",
+    "measured-core": "^1.51.1",
+    "request": "^2.88.0",
     "spm-agent": "^2.0.1",
-    "spm-agent-os": "^1.30.10",
-    "which": "^1.2.12",
+    "spm-agent-os": "^1.30.15",
+    "which": "^2.0.2",
     "zip-zip-top": "^0.2.0"
   }
 }
