@@ -1,6 +1,6 @@
 {
   "name": "sematext-agent-httpd",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "SPM Agent for monitoring Apache httpd",
   "main": "lib/index.js",
   "bin": {
