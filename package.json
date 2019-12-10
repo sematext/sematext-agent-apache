@@ -34,7 +34,7 @@
     "apache webs server"
   ],
   "author": "Sematext Group, Inc.",
-  "license": "Copyright (c) Sematext Group, Inc.",
+  "license": "'Apache 2.0",
   "bugs": {
     "url": "https://github.com/sematext/sematext-agent-httpd/issues"
   },
@@ -43,7 +43,7 @@
     "flat": "^2.0.1",
     "measured-core": "^1.40.1",
     "request": "^2.79.0",
-    "spm-agent": "^1.31.3",
+    "spm-agent": "^2.0.1",
     "spm-agent-os": "^1.30.10",
     "which": "^1.2.12",
     "zip-zip-top": "^0.2.0"
