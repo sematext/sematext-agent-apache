@@ -1,5 +1,5 @@
 #!/bin/sh
-':' // ; export MAX_MEM="--max-old-space-size=60"; exec "$(command -v node || command -v nodejs)" "${NODE_OPTIONS:-$MAX_MEM}" "$0" "$@" 
+':' // ; export MAX_MEM="--max-old-space-size=200"; exec "$(command -v node || command -v nodejs)" "${NODE_OPTIONS:-$MAX_MEM}" "$0" "$@" 
 
 /*
  * @copyright Copyright (c) Sematext Group, Inc. - All Rights Reserved
@@ -10,13 +10,12 @@
  * This source code is to be used exclusively by users and customers of Sematext.
  * Please see the full license (found in LICENSE in this distribution) for details on its license and the licenses of its dependencies.
  */
-var fs = require('fs')
 var ZipZipTop = require('zip-zip-top')
 var zip = new ZipZipTop()
 var config = require('spm-agent').Config
 var util = require('util')
 var os = require('os')
-var path = require ('path')
+var path = require('path')
 
 var systemInfo = {
   operatingSystem: os.type() + ', ' + os.platform() + ', ' + os.release() + ', ' + os.arch(),
@@ -24,18 +23,23 @@ var systemInfo = {
   processEnvironment: process.env
 }
 
-//var cfgDumpFileName = path.join (os.tmpdir(), 'spm-cfg-dump.txt')
-//fs.writeFileSync(cfgDumpFileName, util.inspect(config).toString() + '\nSystem-Info:\n' + util.inspect(systemInfo))
-zip.file('systemInfo.txt',
-	     util.inspect(config).toString() + '\nSystem-Info:\n' + util.inspect(systemInfo));
+zip.file('systemInfo.txt', util.inspect(config).toString() + '\nSystem-Info:\n' + util.inspect(systemInfo))
 zip.zipFolder(config.logger.dir, function (err, data) {
-	zip.zipFolder('/etc/sematext', function (err,data) {
-	  var archFileName = path.join(os.tmpdir(), 'spm-diagnose.zip')
-	  zip.writeToFile(archFileName)
-	  console.log('Sematext diagnostics info is in  ' + archFileName)
-	  console.log('Please e-mail the file to support@sematext.com')
-	// fs.unlink(cfgDumpFileName, function () {})
+  if (err) {
+    return console.error(err)
+  }
+  zip.zipFolder('/etc/sematext', function (err, data) {
+    if (err) {
+      return console.error(err)
+    }
+    var archFileName = path.join(os.tmpdir(), 'spm-diagnose.zip')
+    zip.writeToFile(archFileName, (err) => {
+      if (err) {
+        console.error(err)
+      }
+    })
+    console.log('Sematext diagnostics info is in  ' + archFileName)
+    console.log('Please e-mail the file to support@sematext.com')
+  })
 })
-})
-
 
