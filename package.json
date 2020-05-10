@@ -9,6 +9,13 @@
     "sematext-httpd-uninstall": "bin/sematext-httpd-uninstall",
     "spm-httpd-diagnostics": "./bin/spm-httpd-diagnostics.js"
   },
+  "scripts": {
+    "standard": "standard 'lib/*.js'",
+    "standard-format": "standard -fix -w lib/*.js",
+    "docker-build": "docker build -t sematext/sematext-agent-httpd .",
+    "docker-push": "docker push sematext/sematext-agent-httpd",
+    "release": "release-it"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/sematext/sematext-agent-httpd.git"
@@ -40,12 +47,32 @@
   },
   "homepage": "http://www.sematext.com",
   "dependencies": {
+    "adm-zip": "^0.4.14",
     "flat": "^5.0.0",
     "measured-core": "^1.51.1",
     "request": "^2.88.0",
     "spm-agent": "^2.0.3",
     "spm-agent-os": "^1.30.16",
-    "which": "^2.0.2",
-    "zip-zip-top": "^0.2.0"
+    "which": "^2.0.2"
+  },
+  "devDependencies": {
+    "auto-changelog": "^1.16.2",
+    "babel-eslint": "^10.0.3",
+    "release-it": "^13.5.8",
+    "standard": "^14.3.1"
+  },
+  "release-it": {
+    "github": {
+      "release": true,
+      "tokenRef": "RELEASE_IT_GITHUB_TOKEN",
+      "releaseNotes": "npx auto-changelog --stdout --commit-limit false -u --template ./changelog.hbs",
+      "____comment": "\"assets\": [\"dist/agent-*\"]"
+    },
+    "hooks": {
+      "after:bump": "npx auto-changelog -p"
+    }
+  },
+  "standard": {
+    "parser": "babel-eslint"
   }
 }
