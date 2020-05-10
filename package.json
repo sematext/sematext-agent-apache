@@ -49,6 +49,7 @@
   "dependencies": {
     "adm-zip": "^0.4.14",
     "flat": "^5.0.0",
+    "ls": "^0.2.1",
     "measured-core": "^1.51.1",
     "request": "^2.88.0",
     "spm-agent": "^2.0.3",
