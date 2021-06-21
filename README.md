@@ -1,7 +1,9 @@
 [![Build Status](https://travis-ci.org/sematext/sematext-agent-apache.svg?branch=master)](https://travis-ci.org/sematext/sematext-agent-apache)
 
-This is the Apache httpd monitoring Agent for [Sematext Monitoring](http://sematext.com/spm/)
 
+This [Sematext Cloud](https://sematext.com/) agent for Apache monitoring has been deprecated. A new agent with much simpler setup is [available now](https://sematext.com/product-updates/#/2021/new-agents-for-nginx-apache-and-mongodb).  Apache monitoring can now be set up automatically via [service auto-discovery](https://sematext.com/blog/service-autodiscovery-automatic-monitoring/) and without the need to install any additional agents.  See [auto-discovery documentation](https://sematext.com/docs/monitoring/autodiscovery/).
+
+----
 
 # Preparation 
 
